@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vexbot</title>
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <img src="/vexbot.png" alt="vexbot logo" srcset="" />
+      <h1 class="title">VEXBOT</h1>
+      <h3 class="subheading">FOR VEX ROBOTICS DISCORD COMMUNITIES</h3>
+    </header>
+    <main>
+      <h2 class="section-head">Documentation</h2>
+
+      <p>
+        For all intents and purposes, vexbot is pretty simple to configure.
+        Server specific config is done with the <code>/config</code> command
+      </p>
+
+      <p>
+        To see your server's current configuration, use the command
+        <code>/config list</code>
+      </p>
+
+      <aside>
+        Note: The <code>/config</code> command is only accessible to members
+        that have Administrator permissions on the server. You will require
+        these permissions to configure vexbot. Additionally, vexbot will act on
+        the server as if it has Administrator privledges.
+      </aside>
+
+      <img
+        src="./config_list.png"
+        alt="The result of the config list command is an embed describing the current server configuration"
+      />
+
+      <p>
+        There are a number of properties you can set to configure how vexbot
+        operates in your server. In order to set one of these properties, use
+        the <code>/config</code> command to set it:
+      </p>
+
+      <code class="block">
+        /config set [property] [value]
+      </code>
+
+      <h3>Properties</h3>
+
+      <section>
+        <h4><code>server-log</code></h4>
+        <ul>
+          <li>true</li>
+          <li>false</li>
+        </ul>
+        <code class="block">/config set server-log true</code>
+        <p>
+          Controls whether vexbot logs all messages in the server in
+          <code>#server-log</code>. If this is enabled, it is reccomended that
+          you make this channel admin only, and have all admins mute it. vexbot
+          will log deleted messages and edited messages, making moderation more
+          manageable
+        </p>
+      </section>
+
+      <section>
+        <h4><code>event-log</code></h4>
+        <ul>
+          <li>true</li>
+          <li>false</li>
+        </ul>
+        <code class="block">/config set event-log true</code>
+        <p>
+          Controls whether vexbot logs username changes, member bans, and other
+          important server updates in <code>#event-log</code>. Inside
+          <code>#event-log</code>, these actions can be vetoed.
+        </p>
+
+        <img src="event_log.png" alt="An example of an event log embed" />
+      </section>
+      <section>
+        <h4><code>prefixes</code></h4>
+        <p>
+          Can contain any of the following valid prefixes:
+          <code>/!-[]?:*^&$#</code>
+        </p>
+
+        <code class="block">/config set prefixes !/[*</code>
+
+        <p>
+          Controls which prefixes vexbot uses for its commands. Every prefix
+          specified will trigger vexbot.
+        </p>
+      </section>
+
+      <section>
+        <h4><code>verify</code></h4>
+        <ul>
+          <li>true</li>
+          <li>false</li>
+        </ul>
+        <code class="block">/config set verify true</code>
+
+        <p>
+          Whether to attempt to verify users when they join the server. For this
+          to work, you should have the following channels on the server:
+        </p>
+        <ul>
+          <li><code>#verification</code> (Public)</li>
+          <li><code>#member-approval</code> (Admin Only)</li>
+        </ul>
+
+        <p>
+          When verifying, vexbot will ask for the users name/nickname, primary
+          team affiliation, role on that team, and any other teams they are
+          connected to. It will then automatically post their information into
+          <code>#member-approval</code> where admins can approve or deny their
+          verification.
+        </p>
+
+        <p>
+          The following roles will be created (or used if they already exist)
+          for verification:
+        </p>
+        <ul>
+          <li><code>Verified</code></li>
+          <li><code>High School</code></li>
+          <li><code>Middle School</code></li>
+          <li><code>VEXU</code></li>
+          <li><code>Alumni</code></li>
+          <li><code>Mentor</code></li>
+          <li>Team Roles (see below)</li>
+        </ul>
+
+        <img src="verification.png" alt="An example of an event log embed" />
+      </section>
+
+      <section>
+        <h4><code>team-roles</code></h4>
+        <ul>
+          <li>true</li>
+          <li>false</li>
+        </ul>
+        <code class="block">/config set team-roles true</code>
+        <p>
+          Controls whether vexbot creates roles for specific teams upon
+          verification. For example, if Brendan from BCUZ verified, the role
+          <code>BCUZ</code> would be created and given to him. This can lead to
+          a lot of extra roles on larger & multiregional servers.
+        </p>
+      </section>
+
+      <section>
+        <h4><code>probation</code></h4>
+        <ul>
+          <li>true</li>
+          <li>false</li>
+        </ul>
+        <code class="block">/config set probation true</code>
+        <p>
+          Controls whether vexbot uses the probation/dq system for your server.
+          This allows admins to restrict certain members from posting for a
+          specified period of time.
+        </p>
+
+        <p>This requires:</p>
+        <ul>
+          <li>
+            A <code>Probation</code> role that restricts access to channels
+          </li>
+          <li>
+            The channel <code>#appeals</code> which is restricted to admin and
+            the probation role
+          </li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
