@@ -81,3 +81,19 @@ main section {
   padding-left: 8px;
   border-bottom: 1px solid #e5e5e5;
 }
+
+@media (prefers-color-scheme: dark) {
+  body,
+  html {
+    background-color: #1a1a1a;
+    color: #e5e5e5;
+  }
+
+  a {
+    color: #ff7675;
+  }
+
+  main code {
+    background-color: #111111;
+  }
+}
