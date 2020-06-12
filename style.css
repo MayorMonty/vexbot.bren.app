@@ -44,6 +44,10 @@ main {
   margin: 16px auto;
 }
 
+a {
+  color: #ff7675;
+}
+
 a.button {
   color: white;
   background-color: #ff7675;
@@ -87,10 +91,6 @@ main section {
   html {
     background-color: #1a1a1a;
     color: #e5e5e5;
-  }
-
-  a {
-    color: #ff7675;
   }
 
   main code {
