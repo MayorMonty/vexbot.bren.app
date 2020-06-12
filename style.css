@@ -121,4 +121,13 @@ main section {
   header {
     padding: 0;
   }
+
+  a.button {
+    display: none;
+  }
+
+  a::after {
+    content: attr(href);
+    margin-left: 8px;
+  }
 }
